@@ -79,6 +79,7 @@
   <button onclick="showSection('donaciones')">Donaciones</button>
   <button onclick="showSection('oracion')">Peticiones</button>
   <button onclick="showSection('contacto')">Contacto</button>
+  <button onclick="showSection('servicios')">Servicios Médicos</button>
 </nav>
 
 <!-- Sección Inicio -->
@@ -93,15 +94,15 @@
   <!-- Slider con fade y botones Ver más -->
   <div class="slider-container">
     <div class="slider-slide active">
-      <img src="ENLACE_IMAGEN_1" alt="Evento destacado 1">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Church_example.jpg/640px-Church_example.jpg" alt="Evento destacado 1">
       <p class="slider-caption">Misa dominical – Domingo 10:00 AM <button class="btn" onclick="showSection('eventos')">Ver más</button></p>
     </div>
     <div class="slider-slide">
-      <img src="ENLACE_IMAGEN_2" alt="Evento destacado 2">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Church_interior_example.jpg/640px-Church_interior_example.jpg" alt="Evento destacado 2">
       <p class="slider-caption">Retiro espiritual – Próximo mes <button class="btn" onclick="showSection('eventos')">Ver más</button></p>
     </div>
     <div class="slider-slide">
-      <iframe src="ENLACE_VIDEO_SLIDER" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
       <p class="slider-caption">Reflexión sobre la Providencia <button class="btn" onclick="showSection('sermones')">Ver más</button></p>
     </div>
     <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
@@ -115,7 +116,58 @@
   </div>
 </section>
 
-<!-- (El resto de las secciones siguen igual: iglesia, sermones, envivo, eventos, donaciones, oracion, contacto) -->
+<!-- Sección Servicios Médicos -->
+<section id="servicios">
+  <div class="hero">
+    <h2>Servicios Médicos</h2>
+    <p>Conoce los servicios de salud que ofrecemos a nuestra comunidad</p>
+  </div>
+
+  <div class="card highlight">
+    <h3>Consulta General</h3>
+    <p>Atención médica básica para toda la familia</p>
+    <button class="btn">Solicitar cita</button>
+  </div>
+
+  <div class="card highlight">
+    <h3>Orientación Nutricional</h3>
+    <p>Asesoría personalizada para llevar una alimentación saludable</p>
+    <button class="btn">Solicitar cita</button>
+  </div>
+
+  <div class="card highlight">
+    <h3>Cámara Hiperbárica</h3>
+    <p>Respira<b> Oxígeno al 100 % a una Presión mayor que la atmosférica normal</b></p>
+    <button class="btn">Solicitar cita</button>
+  </div>
+
+
+   <div class="card highlight">
+    <h3>Servicio de Criptas</h3>
+    <p>
+      Ofrecemos espacios de descanso eterno dentro de nuestras instalaciones,
+      brindando un lugar digno y sagrado para sus seres queridos.
+    </p>
+    <p><strong>Informes y disponibilidad:</strong> Oficina parroquial</p>
+    <button class="btn" onclick="showSection('contacto')">
+      Solicitar información
+    </button>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="hero">
+    <h2>Contacto</h2>
+    <p>Envíanos tu mensaje y con gusto te atenderemos</p>
+  </div>
+
+  <div class="card">
+    <input type="text" placeholder="Tu nombre">
+    <input type="email" placeholder="Tu correo">
+    <textarea rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+    <button class="btn">Enviar mensaje</button>
+  </div>
+</section>
 
 <footer>
   <p>© 2026 Iglesia Franciscana de la Divina Providencia</p>
