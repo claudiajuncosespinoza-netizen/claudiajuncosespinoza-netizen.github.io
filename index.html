@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglesia Franciscana de la Divina Providencia</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Arial', sans-serif; background:#fdf7f0; color:#4a3c31; line-height:1.6; transition: background 0.3s; }
+
+  /* Header */
+  header { background:#7b5e3b; color:white; padding:40px 20px; text-align:center; animation: fadeInDown 1s ease; }
+  header h1 { font-size:2.5em; }
+
+  /* Navegación */
+  nav { background:#a67c52; display:flex; justify-content:center; flex-wrap:wrap; padding:10px; box-shadow:0 2px 5px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; }
+  nav button { background:#b85c38; color:white; border:none; padding:12px 20px; margin:5px; cursor:pointer; border-radius:8px; font-weight:bold; transition:0.3s; }
+  nav button:hover { background:#a14c2e; transform: scale(1.05); }
+
+  /* Secciones */
+  section { display:none; padding:50px 20px; opacity:0; transform: translateY(20px); transition: all 0.6s ease; }
+  section.active { display:block; opacity:1; transform: translateY(0); }
+
+  /* Hero */
+  .hero { background:#d9c7b8; padding:80px 20px; text-align:center; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-bottom:40px; animation: fadeIn 1s ease; }
+  .hero h2 { font-size:2em; margin-bottom:10px; animation: slideDown 1s ease; }
+  .hero p { font-size:1.2em; margin-bottom:20px; animation: slideDown 1s 0.3s ease both; }
+
+  /* Botones */
+  .btn { display:inline-block; padding:15px 25px; background:#b85c38; color:white; text-decoration:none; border-radius:8px; margin:5px; cursor:pointer; font-size:1em; transition: all 0.3s ease; }
+  .btn:hover { background:#a14c2e; transform: translateY(-2px) scale(1.05); }
+
+  /* Tarjetas */
+  .card { background:white; padding:20px; margin:20px auto; border-radius:10px; max-width:600px; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition: all 0.3s ease; }
+  .card:hover { box-shadow:0 8px 20px rgba(0,0,0,0.25); transform: translateY(-3px); }
+  .highlight { border:2px dashed #b85c38; padding:10px; border-radius:8px; margin-top:20px; }
+
+  .admin-panel { background:#f8f0e3; border:2px solid #b85c38; border-radius:10px; padding:15px; margin-top:20px; max-width:600px; margin:auto; transition: all 0.3s ease; }
+
+  iframe { width:100%; max-width:560px; height:315px; border:none; border-radius:8px; margin-top:20px; transition: all 0.3s ease; }
+  input, textarea { padding:12px; width:100%; margin:8px 0; border-radius:6px; border:1px solid #ccc; font-size:1em; transition: all 0.3s ease; }
+  input:focus, textarea:focus { border-color:#b85c38; outline:none; box-shadow:0 0 8px rgba(184,92,56,0.4); }
+
+  footer { background:#7b5e3b; color:white; text-align:center; padding:25px; margin-top:40px; }
+
+  /* Animaciones */
+  @keyframes fadeInDown { 0% { opacity:0; transform: translateY(-30px); } 100% { opacity:1; transform: translateY(0); } }
+  @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
+  @keyframes slideDown { 0% { opacity:0; transform: translateY(-20px); } 100% { opacity:1; transform: translateY(0); } }
+
+  /* Slider */
+  .slider-container { position: relative; max-width: 600px; margin: 30px auto; overflow: hidden; border-radius:10px; box-shadow:0 6px 12px rgba(0,0,0,0.15); }
+  .slider-slide { position:absolute; width:100%; opacity:0; transition: opacity 1s ease-in-out; }
+  .slider-slide.active { opacity:1; position:relative; }
+  .slider-slide img, .slider-slide iframe { width:100%; border-radius:10px; }
+  .slider-caption { background: rgba(0,0,0,0.5); color: #fff; padding:10px; position: absolute; bottom:0; width:100%; border-bottom-left-radius:10px; border-bottom-right-radius:10px; font-size:1em; }
+  .slider-btn { position:absolute; top:50%; transform: translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; font-size:18px; cursor:pointer; border-radius:50%; user-select:none; }
+  .slider-btn:hover { background:rgba(0,0,0,0.8); }
+  .slider-btn.prev { left:10px; }
+  .slider-btn.next { right:10px; }
+
+  /* Responsive */
+  @media (max-width:768px) { .hero { padding:50px 15px; } nav button { flex:1 1 45%; margin:5px; } iframe { height:220px; } }
+  @media (max-width:480px) { .hero h2 { font-size:1.5em; } .hero p { font-size:1em; } nav button { flex:1 1 100%; } iframe { height:180px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Iglesia Franciscana de la Divina Providencia</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('inicio')">Inicio</button>
+  <button onclick="showSection('iglesia')">Nuestra Iglesia</button>
+  <button onclick="showSection('sermones')">Sermones</button>
+  <button onclick="showSection('envivo')">En Vivo</button>
+  <button onclick="showSection('eventos')">Eventos</button>
+  <button onclick="showSection('donaciones')">Donaciones</button>
+  <button onclick="showSection('oracion')">Peticiones</button>
+  <button onclick="showSection('contacto')">Contacto</button>
+</nav>
+
+<!-- Sección Inicio -->
+<section id="inicio" class="active">
+  <div class="hero">
+    <h2>¡Bienvenidos a nuestra comunidad!</h2>
+    <p>Únete a nuestras transmisiones y actividades</p>
+    <button class="btn" onclick="showSection('envivo')">Ver En Vivo 🔴</button>
+    <button class="btn" onclick="showSection('oracion')">Enviar Petición 🙏</button>
+  </div>
+
+  <!-- Slider con fade y botones Ver más -->
+  <div class="slider-container">
+    <div class="slider-slide active">
+      <img src="ENLACE_IMAGEN_1" alt="Evento destacado 1">
+      <p class="slider-caption">Misa dominical – Domingo 10:00 AM <button class="btn" onclick="showSection('eventos')">Ver más</button></p>
+    </div>
+    <div class="slider-slide">
+      <img src="ENLACE_IMAGEN_2" alt="Evento destacado 2">
+      <p class="slider-caption">Retiro espiritual – Próximo mes <button class="btn" onclick="showSection('eventos')">Ver más</button></p>
+    </div>
+    <div class="slider-slide">
+      <iframe src="ENLACE_VIDEO_SLIDER" allowfullscreen></iframe>
+      <p class="slider-caption">Reflexión sobre la Providencia <button class="btn" onclick="showSection('sermones')">Ver más</button></p>
+    </div>
+    <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
+  </div>
+
+  <div class="card highlight">
+    <h3>Último sermón</h3>
+    <p>Reflexión: La Providencia en nuestras vidas</p>
+    <button class="btn" onclick="showSection('sermones')">Ver más</button>
+  </div>
+</section>
+
+<!-- (El resto de las secciones siguen igual: iglesia, sermones, envivo, eventos, donaciones, oracion, contacto) -->
+
+<footer>
+  <p>© 2026 Iglesia Franciscana de la Divina Providencia</p>
+</footer>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* Slider profesional */
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slider-slide');
+
+function showSlide(index){
+  slides.forEach((slide, i)=> slide.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+function nextSlide(){
+  currentSlide = (currentSlide +1) % slides.length;
+  showSlide(currentSlide);
+}
+function prevSlide(){
+  currentSlide = (currentSlide -1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+setInterval(nextSlide,5000);
+
+/* Agregar evento simulado */
+function agregarEvento(){
+  const nombre = prompt("Nombre del evento:");
+  const fecha = prompt("Fecha y hora:");
+  if(nombre && fecha){
+    const eventosList = document.getElementById('eventos-list');
+    const card = document.createElement('div');
+    card.className = "card highlight";
+    card.innerHTML = `<h3>${nombre}</h3><p>${fecha}</p><button class="btn">Registrarse</button>`;
+    eventosList.appendChild(card);
+    alert("Simulación: Evento agregado!");
+  }
+}
+</script>
+
+</body>
+</html>
